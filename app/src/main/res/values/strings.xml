@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">msmpu3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="status">Status:</string>
+    <string name="tak_lulus">Tidak Diluluskan</string>
+    <string name="dalam_proses"> Tindakan Urusetia(untuk kelulusan)</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

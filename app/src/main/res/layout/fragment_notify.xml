@@ -1,0 +1,21 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.myxlab.shida_minie.msmpu3.NotifyFragment"
+    android:layout_gravity="center"
+    android:background="#EDF0EC">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_noti">
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</FrameLayout>
