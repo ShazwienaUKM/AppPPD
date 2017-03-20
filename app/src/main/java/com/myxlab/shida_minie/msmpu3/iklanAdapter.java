@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public class iklanAdapter extends RecyclerView.Adapter<iklanAdapter.ViewHolder> {
 
 
+    public static final String KEY_NAME = "KEY_NAME";
     public Context contextIklan;
     List<IklanData> iklanDataList;
     //private IklanData[] iklanDatas;
@@ -82,14 +84,9 @@ public class iklanAdapter extends RecyclerView.Adapter<iklanAdapter.ViewHolder> 
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
-                    Snackbar.make(view,"item has been click" +position, Snackbar.LENGTH_LONG).setAction("Action",null).show();
-
-                    if (position == 0)
-                    {
-                        Intent i = new Intent(contextIklan,DanaActivity2.class);
-
-                        view.getContext().startActivity(i);
-                    }
+                    Intent i = new Intent(contextIklan,DanaActivity2.class);
+                    i.putExtra(KEY_NAME,iklanDataList.get(position).getNama());
+                    view.getContext().startActivity(i);
                 }
             });
 

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -41,6 +42,9 @@ public class DanaActivity2 extends AppCompatActivity {
 
         getData();
 
+        Intent intent = getIntent();
+        String name = intent.getStringExtra(iklanAdapter.KEY_NAME);
+        Toast.makeText(this, ""+name, Toast.LENGTH_SHORT).show();
 
        // DanaData danaData[] = {new DanaData("Jenis Dana :","Dana Penyelidikan Top Down"),new DanaData("Status Iklan :","Sedang Iklan"),new DanaData("Garis Panduan :","http://"),new DanaData("Tarikh Buka :","01/01/2016"),new DanaData("Tarikh Tutup :","31/12/16"),new DanaData("Urusetia :","AZRIZAL BIN MOHAMED ZIN"),new DanaData("No. Telefon :","4064")};
 
