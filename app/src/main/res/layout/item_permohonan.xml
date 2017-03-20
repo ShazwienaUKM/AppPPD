@@ -11,7 +11,7 @@
         android:text="Medium Text"
         android:paddingTop="6dp"
         android:paddingLeft="16dp"
-        android:id="@+id/text_permohonan"
+        android:id="@+id/text_idPermohonan"
         android:textSize="15dp"
         android:textColor="@color/material_grey_600"/>
 
@@ -22,20 +22,133 @@
         android:text="Medium Text"
         android:paddingBottom="6dp"
         android:paddingLeft="16dp"
-        android:id="@+id/tv_permohonan"
+        android:id="@+id/tv_idPermohonan"
         android:textColor="@android:color/black"
-        android:layout_below="@+id/text_permohonan"
+        android:layout_below="@+id/text_idPermohonan"
         android:textSize="15dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-<!--    <View
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/design_fab_stroke_end_inner_color"
-        android:id="@+id/line"
-        android:layout_below="@+id/tv_permohonan"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:layout_below="@+id/tv_idPermohonan"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />-->
+        android:layout_alignParentStart="true"
+        android:id="@+id/text_namaDana"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_namaDana"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_namaDana"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:layout_below="@+id/tv_namaDana"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/text_tajuk"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tajuk"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tajuk"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:layout_below="@+id/tv_tajuk"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/text_jangkaMasa"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_jangkaMasa"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_jangkaMasa"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:layout_below="@+id/tv_jangkaMasa"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/text_statusPermohonan"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_statusPermohonan"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_statusPermohonan"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!--    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/design_fab_stroke_end_inner_color"
+            android:id="@+id/line"
+            android:layout_below="@+id/tv_permohonan"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />-->
 
 </RelativeLayout>
 

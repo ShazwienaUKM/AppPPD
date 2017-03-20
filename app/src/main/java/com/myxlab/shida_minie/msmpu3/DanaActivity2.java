@@ -26,6 +26,7 @@ public class DanaActivity2 extends AppCompatActivity {
     RecyclerView rv_Dana;
     RecyclerView.LayoutManager danaLayout;
     RecyclerView.Adapter danaAdapter;
+    List<DanaData>danaDataList;
 
 
     @Override
@@ -36,15 +37,93 @@ public class DanaActivity2 extends AppCompatActivity {
         rv_Dana = (RecyclerView) findViewById(R.id.rvDana);
         danaLayout = new LinearLayoutManager(this);
         rv_Dana.setLayoutManager(danaLayout);
+        danaDataList = new ArrayList<>();
+
+        getData();
 
 
-        DanaData danaData[] = {new DanaData("Jenis Dana :","Dana Penyelidikan Top Down"),new DanaData("Status Iklan :","Sedang Iklan"),new DanaData("Garis Panduan :","http://"),new DanaData("Tarikh Buka :","01/01/2016"),new DanaData("Tarikh Tutup :","31/12/16"),new DanaData("Urusetia :","AZRIZAL BIN MOHAMED ZIN"),new DanaData("No. Telefon :","4064")};
+       // DanaData danaData[] = {new DanaData("Jenis Dana :","Dana Penyelidikan Top Down"),new DanaData("Status Iklan :","Sedang Iklan"),new DanaData("Garis Panduan :","http://"),new DanaData("Tarikh Buka :","01/01/2016"),new DanaData("Tarikh Tutup :","31/12/16"),new DanaData("Urusetia :","AZRIZAL BIN MOHAMED ZIN"),new DanaData("No. Telefon :","4064")};
 
 
 
-        danaAdapter = new DanaAdapter(danaData,DanaActivity2.this);
+        /*danaAdapter = new DanaAdapter(danaData,DanaActivity2.this);
+        rv_Dana.setAdapter(danaAdapter);*/
+
+    }
+
+    private void getData() {
+
+        final ProgressDialog loading = ProgressDialog.show(this, "Loading Data", "Please Wait...", false, true);
+        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/dana";
+
+        Log.e("DanaActivity2","getData");
+
+        //create a json object request
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    JSONArray resultsArray = response.getJSONArray("geran");
+                    parseData(resultsArray);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.e("DanaActivity2", response.toString());
+                loading.dismiss();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error",error.toString());
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonObjectRequest);
+
+    }
+
+    private void parseData(JSONArray array) {
+        for (int i = 0; i < array.length(); i++) {
+            DanaData dana = new DanaData();
+            JSONObject json = null;
+            try {
+                json = array.getJSONObject(i);
+
+                String dataName =json.getString("Nama Geran");
+                String dataStatus =json.getString("Status");
+                //String panduan =json.getString("Garis Panduan");
+                String tarikhBuka =json.getString("Tarikh Buka");
+                String tarikhTutup =json.getString("Tarikh Tutup");
+                //String urusetia =json.getString("Nama Urusetia");
+                //String fon =json.getString("No. Tel");
+
+                dana.setText_dana("Nama Geran");
+                dana.setTv_dana(dataName);
+                dana.setText_status("Status");
+                dana.setTv_status(dataStatus);
+                dana.setText_panduan("Garis Panduan");
+                //dana.setTv_panduan(panduan);
+                dana.setText_tbuka("Tarikh Buka");
+                dana.setTv_tbuka(tarikhBuka);
+                dana.setText_ttutup("Tarikh Tutup");
+                dana.setTv_ttutup(tarikhTutup);
+                dana.setText_urusetia("Nama Urusetia");
+                //dana.setTv_urusetia(urusetia);
+                dana.setText_fon("No. Tel");
+                //dana.setTv_fon(fon);
+
+                //Log.e("iklanFragment Response(" + array.length() + ")", dataName +" - "+ dataStatus );
+                //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            danaDataList.add(dana);
+        }
+
+        danaAdapter = new DanaAdapter(danaDataList,this);
         rv_Dana.setAdapter(danaAdapter);
-
 
     }
 

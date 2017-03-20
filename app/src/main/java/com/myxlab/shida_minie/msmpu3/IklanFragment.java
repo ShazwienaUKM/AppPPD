@@ -74,7 +74,7 @@ public class IklanFragment extends android.support.v4.app.Fragment {
     private void getData(){
         // url - http://pokesnipers.com/api/v1/pokemon.json
         final ProgressDialog loading = ProgressDialog.show(getContext(), "Loading Data", "Please Wait...", false, true);
-        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/dana";
+        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/dana/";
 
         Log.e("IklanFragment","getData");
 

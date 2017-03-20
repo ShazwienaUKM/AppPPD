@@ -7,16 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by User on 1/4/2016.
  */
 public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.ViewHolder> {
 
-    private PermohonanData[] permohonanData;
     private Context context;
+    List<PermohonanData>permohonanDataList;
 
-    public PermohonanAdapter(PermohonanData[] permohonanData, Context context) {
-        this.permohonanData = permohonanData;
+    public PermohonanAdapter(List<PermohonanData>permohonanDataList, Context context) {
+        this.permohonanDataList = permohonanDataList;
         this.context = context;
     }
 
@@ -29,24 +31,27 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
 
     @Override
     public void onBindViewHolder(PermohonanAdapter.ViewHolder holder, int position) {
-        holder.question.setText(permohonanData[position].getQuestion());
-        holder.answer.setText(permohonanData[position].getAnswer());
+        final PermohonanData permohonanData = permohonanDataList.get(position);
+
+        /*holder.question.setText(permohonanData.getQuestion());
+        holder.answer.setText(permohonanData.getAnswer());*/
     }
 
     @Override
     public int getItemCount() {
-        return permohonanData.length;
+        return permohonanDataList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView question,answer;
+        public TextView text_idPermohonan,tv_idPermohonan,text_namaDana,tv_namaDana,text_tajuk,tv_tajuk,text_jangkaMasa,tv_jangkaMasa,text_status;
 
 
         public ViewHolder(View danaView) {
             super(danaView);
 
-            question = (TextView) danaView.findViewById(R.id.text_permohonan);
-            answer = (TextView) danaView.findViewById(R.id.tv_permohonan);
+            text_idPermohonan = (TextView) danaView.findViewById(R.id.text_idPermohonan);
+            tv_idPermohonan = (TextView) danaView.findViewById(R.id.tv_idPermohonan);
+
         }
     }
 }
