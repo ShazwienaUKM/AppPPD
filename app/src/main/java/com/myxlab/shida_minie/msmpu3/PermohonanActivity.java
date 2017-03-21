@@ -35,15 +35,14 @@ public class PermohonanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_permohonan);
 
         rv_permohonan = (RecyclerView) findViewById(R.id.rv_permohonan);
-
+        permohonanLayout = new LinearLayoutManager(this);
+        rv_permohonan.setLayoutManager(permohonanLayout);
         permohonanDataList = new ArrayList<>();
-
         getData();
 
         //PermohonanData permohonanData[] = {new PermohonanData("ID Borang :","P14256"),new PermohonanData("Nama Dana :","Geran Universiti Penyelidikan"),new PermohonanData("Tajuk :","A Multimodal Adaptive Interface Design for Wearables to Support Tourism Augmented Reality"),new PermohonanData("Jangka Masa (Bulan) :","24"),new PermohonanData("Status Mohon :","\tTindakan Urusetia(untuk kelulusan)")};
 
-        permohonanLayout = new LinearLayoutManager(this);
-        rv_permohonan.setLayoutManager(permohonanLayout);
+
 
       /*  permohonan_adapter = new PermohonanAdapter(permohonanData,PermohonanActivity.this);
         rv_permohonan.setAdapter(permohonan_adapter);*/
@@ -106,7 +105,7 @@ public class PermohonanActivity extends AppCompatActivity {
                 permohonan.setText_status("Status");
                 permohonan.setTv_status(statusPermohonan);
 
-                //Log.e("iklanFragment Response(" + array.length() + ")", dataName +" - "+ dataStatus );
+                Log.e("iklanFragment Response(" + array.length() + ")", idBorang +" - "+ tajuk );
                 //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
                 e.printStackTrace();

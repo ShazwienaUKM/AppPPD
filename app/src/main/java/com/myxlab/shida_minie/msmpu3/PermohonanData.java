@@ -5,16 +5,7 @@ package com.myxlab.shida_minie.msmpu3;
  */
 public class PermohonanData {
 
-    String text_idPermohonan;
-    String tv_idPermohonan;
-    String text_namaDana;
-    String tv_namaDana;
-    String text_tajuk;
-    String tv_tajuk;
-    String text_jangkaMasa;
-    String tv_jangkaMasa;
-    String text_status;
-    String tv_status;
+    String text_idPermohonan, tv_idPermohonan,text_namaDana,tv_namaDana,text_tajuk,tv_tajuk,text_jangkaMasa,tv_jangkaMasa,text_status,tv_status;
 
     public PermohonanData() {
     }
