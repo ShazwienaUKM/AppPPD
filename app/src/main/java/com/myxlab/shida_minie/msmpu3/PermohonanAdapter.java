@@ -66,8 +66,8 @@ public class PermohonanAdapter extends RecyclerView.Adapter<PermohonanAdapter.Vi
             tv_tajuk = (TextView) permohonanView.findViewById(R.id.tv_tajuk);
             text_jangkaMasa = (TextView) permohonanView.findViewById(R.id.text_jangkaMasa);
             tv_jangkaMasa = (TextView) permohonanView.findViewById(R.id.tv_jangkaMasa);
-            text_status = (TextView) permohonanView.findViewById(R.id.text_status);
-            tv_status = (TextView) permohonanView.findViewById(R.id.tv_status);
+            text_status = (TextView) permohonanView.findViewById(R.id.text_statusPermohonan);
+            tv_status = (TextView) permohonanView.findViewById(R.id.tv_statusPermohonan);
 
 
         }
