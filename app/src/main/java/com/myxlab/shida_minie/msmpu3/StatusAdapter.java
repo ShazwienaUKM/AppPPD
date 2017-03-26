@@ -78,10 +78,10 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.ViewHolder
             tv_ketuaP = (TextView) statusView.findViewById(R.id.tv_ketuaP);
             text_tmula = (TextView) statusView.findViewById(R.id.text_tmula);
             tv_tmula = (TextView) statusView.findViewById(R.id.tv_tmula);
-            text_ttamat = (TextView) statusView.findViewById(R.id.text_ttutup);
+            text_ttamat = (TextView) statusView.findViewById(R.id.text_ttamat);
             tv_ttamat = (TextView) statusView.findViewById(R.id.tv_ttamat);
-            text_status = (TextView) statusView.findViewById(R.id.text_status);
-            tv_status = (TextView) statusView.findViewById(R.id.tv_status);
+            text_status = (TextView) statusView.findViewById(R.id.text_statusP);
+            tv_status = (TextView) statusView.findViewById(R.id.tv_statusP);
 
         }
     }

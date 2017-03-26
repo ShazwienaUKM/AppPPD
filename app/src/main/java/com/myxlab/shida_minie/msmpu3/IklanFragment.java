@@ -115,6 +115,7 @@ public class IklanFragment extends android.support.v4.app.Fragment {
                 String dataStatus =json.getString("Status");
 
                 iklan.setNama(dataName);
+                //iklan.setNama("1");
                 iklan.setStatus(dataStatus);
 
                 Log.e("iklanFragment Response(" + array.length() + ")", dataName +" - "+ dataStatus );

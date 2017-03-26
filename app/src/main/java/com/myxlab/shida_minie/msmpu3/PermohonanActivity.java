@@ -38,6 +38,7 @@ public class PermohonanActivity extends AppCompatActivity {
         permohonanLayout = new LinearLayoutManager(this);
         rv_permohonan.setLayoutManager(permohonanLayout);
         permohonanDataList = new ArrayList<>();
+
         getData();
 
         //PermohonanData permohonanData[] = {new PermohonanData("ID Borang :","P14256"),new PermohonanData("Nama Dana :","Geran Universiti Penyelidikan"),new PermohonanData("Tajuk :","A Multimodal Adaptive Interface Design for Wearables to Support Tourism Augmented Reality"),new PermohonanData("Jangka Masa (Bulan) :","24"),new PermohonanData("Status Mohon :","\tTindakan Urusetia(untuk kelulusan)")};

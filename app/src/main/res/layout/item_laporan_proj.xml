@@ -11,7 +11,7 @@
         android:text="Medium Text"
         android:paddingTop="10dp"
         android:paddingLeft="16dp"
-        android:id="@+id/text_LaporanProjek"
+        android:id="@+id/text_kodP"
         android:textSize="15dp"
         android:textColor="@color/material_grey_600"/>
 
@@ -22,12 +22,376 @@
         android:text="Medium Text"
         android:paddingBottom="10dp"
         android:paddingLeft="16dp"
-        android:id="@+id/tv_LaporanProjek"
+        android:id="@+id/tv_kodP"
         android:textColor="@android:color/black"
-        android:layout_below="@+id/text_LaporanProjek"
+        android:layout_below="@+id/text_kodP"
         android:textSize="15dp"
         android:layout_alignParentLeft="true"
        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_namaDana"
+        android:layout_below="@+id/tv_kodP"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_namaDana"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_namaDana"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tajuk"
+        android:layout_below="@+id/tv_namaDana"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tajuk"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tajuk"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tmula"
+        android:layout_below="@+id/tv_tajuk"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tmula"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tmula"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_ttamat"
+        android:layout_below="@+id/tv_tmula"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_ttamat"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_ttamat"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_statusP"
+        android:layout_below="@+id/tv_ttamat"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_statusP"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_statusP"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tempohlaporan1"
+        android:layout_below="@+id/tv_statusP"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tempohlaporan1"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tempohlaporan1"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tpenghantaran1"
+        android:layout_below="@+id/tv_tempohlaporan1"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tpenghantaran1"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tpenghantaran1"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_statuslaporan1"
+        android:layout_below="@+id/tv_tpenghantaran1"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_statuslaporan1"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_statuslaporan1"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tempohlaporan2"
+        android:layout_below="@+id/tv_statuslaporan1"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tempohlaporan2"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tempohlaporan2"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tpenghantaran2"
+        android:layout_below="@+id/tv_tempohlaporan2"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tpenghantaran2"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tpenghantaran2"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_statuslaporan2"
+        android:layout_below="@+id/tv_tpenghantaran2"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_statuslaporan2"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_statuslaporan2"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tempohlaporan3"
+        android:layout_below="@+id/tv_statuslaporan2"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tempohlaporan3"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tempohlaporan3"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_tpenghantaran3"
+        android:layout_below="@+id/tv_tempohlaporan3"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_tpenghantaran3"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_tpenghantaran3"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_statuslaporan3"
+        android:layout_below="@+id/tv_tpenghantaran3"
+        android:textSize="15dp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_statuslaporan3"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_statuslaporan3"
+        android:textSize="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
   <!--   <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

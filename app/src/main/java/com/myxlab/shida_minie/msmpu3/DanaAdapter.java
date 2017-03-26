@@ -1,6 +1,7 @@
 package com.myxlab.shida_minie.msmpu3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +10,16 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import static com.myxlab.shida_minie.msmpu3.iklanAdapter.KEY_NAME;
+
 /**
  * Created by User on 1/3/2017.
  */
 public class DanaAdapter extends RecyclerView.Adapter<DanaAdapter.ViewHolder> {
 
-    private Context context;
+    public Context context;
     List<DanaData>danaDataList;
+
 
     public DanaAdapter(List<DanaData>danaDataList, Context context) {
         this.danaDataList = danaDataList;
@@ -76,6 +80,11 @@ public class DanaAdapter extends RecyclerView.Adapter<DanaAdapter.ViewHolder> {
             tv_urusetia = (TextView) danaView.findViewById(R.id.tv_urusetia);
             text_fon = (TextView) danaView.findViewById(R.id.text_fon);
             tv_fon = (TextView) danaView.findViewById(R.id.tv_fon);
+
+
+            /*int position = getAdapterPosition();
+            String KEY_SNAME = danaDataList.get(position).getTv_dana();*/
+
 
         }
     }

@@ -23,11 +23,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.myxlab.shida_minie.msmpu3.iklanAdapter.KEY_NAME;
+
 public class DanaActivity2 extends AppCompatActivity {
+
     RecyclerView rv_Dana;
     RecyclerView.LayoutManager danaLayout;
     RecyclerView.Adapter danaAdapter;
     List<DanaData>danaDataList;
+
+    public static final String KEY_SNAME = "KEY_SNAME";
 
 
     @Override
@@ -48,10 +53,14 @@ public class DanaActivity2 extends AppCompatActivity {
 
        // DanaData danaData[] = {new DanaData("Jenis Dana :","Dana Penyelidikan Top Down"),new DanaData("Status Iklan :","Sedang Iklan"),new DanaData("Garis Panduan :","http://"),new DanaData("Tarikh Buka :","01/01/2016"),new DanaData("Tarikh Tutup :","31/12/16"),new DanaData("Urusetia :","AZRIZAL BIN MOHAMED ZIN"),new DanaData("No. Telefon :","4064")};
 
-
-
         /*danaAdapter = new DanaAdapter(danaData,DanaActivity2.this);
         rv_Dana.setAdapter(danaAdapter);*/
+
+        //int position = rv_Dana.getChildAdapterPosition(context);
+       /* if(KEY_NAME == KEY_SNAME)
+        {
+            getData();
+        }*/
 
     }
 
@@ -59,6 +68,10 @@ public class DanaActivity2 extends AppCompatActivity {
 
         final ProgressDialog loading = ProgressDialog.show(this, "Loading Data", "Please Wait...", false, true);
         String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/dana";
+
+       /* String link = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/dana/";
+
+        String url = link + KEY_NAME;*/
 
         Log.e("DanaActivity2","getData");
 
@@ -103,20 +116,22 @@ public class DanaActivity2 extends AppCompatActivity {
                 //String urusetia =json.getString("Nama Urusetia");
                 //String fon =json.getString("No. Tel");
 
-                dana.setText_dana("Nama Geran");
-                dana.setTv_dana(dataName);
-                dana.setText_status("Status");
-                dana.setTv_status(dataStatus);
-                dana.setText_panduan("Garis Panduan");
-                //dana.setTv_panduan(panduan);
-                dana.setText_tbuka("Tarikh Buka");
-                dana.setTv_tbuka(tarikhBuka);
-                dana.setText_ttutup("Tarikh Tutup");
-                dana.setTv_ttutup(tarikhTutup);
-                dana.setText_urusetia("Nama Urusetia");
-                //dana.setTv_urusetia(urusetia);
-                dana.setText_fon("No. Tel");
-                //dana.setTv_fon(fon);
+
+                    dana.setText_dana("Nama Geran");
+                    dana.setTv_dana(dataName);
+                    dana.setText_status("Status");
+                    dana.setTv_status(dataStatus);
+                    dana.setText_panduan("Garis Panduan");
+                    //dana.setTv_panduan(panduan);
+                    dana.setText_tbuka("Tarikh Buka");
+                    dana.setTv_tbuka(tarikhBuka);
+                    dana.setText_ttutup("Tarikh Tutup");
+                    dana.setTv_ttutup(tarikhTutup);
+                    dana.setText_urusetia("Nama Urusetia");
+                    //dana.setTv_urusetia(urusetia);
+                    dana.setText_fon("No. Tel");
+                    //dana.setTv_fon(fon);
+
 
                 //Log.e("iklanFragment Response(" + array.length() + ")", dataName +" - "+ dataStatus );
                 //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
