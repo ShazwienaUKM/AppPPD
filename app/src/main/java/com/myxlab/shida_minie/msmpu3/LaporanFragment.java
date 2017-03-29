@@ -47,12 +47,13 @@ public class LaporanFragment extends Fragment {
         String s = "Selesai";
         String b = "Belum Selesai";
 
-        LaporanData senaraiLaporan[]={new LaporanData("UKM MOBILE APP",b),
+        /*LaporanData senaraiLaporan[]={new LaporanData("UKM MOBILE APP",b),
                 new LaporanData("Mobile Sensing Technology for Augmented Reality and Medical Application",b),
-                new LaporanData("Development of Mobile Sensing Technology for Medical Application",s)};
+                new LaporanData("Development of Mobile Sensing Technology for Medical Application",s)};*/
 
 
         rv_Laporan.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
         // getActivity().getApplicationContext() --> method untuk dapatkan context.
         
         /*laporan_adapter = new laporanAdapter(getActivity(),senaraiLaporan);
@@ -102,9 +103,11 @@ public class LaporanFragment extends Fragment {
             try {
                 json = array.getJSONObject(i);
 
+                String idlaporan = json.getString("Id");
                 String dataName =json.getString("Id Projek");
                 String dataStatus =json.getString("Status");
 
+                laporan.setId_laporan(idlaporan);
                 laporan.setNama(dataName);
                 laporan.setStatus(dataStatus);
 

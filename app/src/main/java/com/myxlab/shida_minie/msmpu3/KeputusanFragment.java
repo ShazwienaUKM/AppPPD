@@ -108,9 +108,11 @@ public class KeputusanFragment extends Fragment {
             try {
                 json = array.getJSONObject(i);
 
+                String id_keputusan = json.getString("Id");
                 String dataName =json.getString("Tajuk");
                 String dataStatus =json.getString("Status");
 
+                keputusan.setId_keputusan(id_keputusan);
                 keputusan.setNama(dataName);
                 keputusan.setStatus(dataStatus);
 

@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,23 +24,48 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.myxlab.shida_minie.msmpu3.ProjectAdapter.ID_PROJEK;
+
 public class StatusActivity extends AppCompatActivity {
 
-    RecyclerView rv_status;
+    /*RecyclerView rv_status;
     RecyclerView.LayoutManager statusLayout;
     RecyclerView.Adapter status_adapter;
-    List<StatusData>statusDataList;
+    List<StatusData>statusDataList;*/
+
+    TextView text_kodP,tv_kodP,text_namaDana,tv_namaDana,text_tajuk,tv_tajuk,text_peranan,tv_peranan,text_ketuaP,tv_ketuaP,text_tmula,tv_tmula,text_ttamat,tv_ttamat,text_status,tv_status;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
 
-        rv_status= (RecyclerView) findViewById(R.id.rv_status);
+     /*   rv_status= (RecyclerView) findViewById(R.id.rv_status);
         statusLayout = new LinearLayoutManager(this);
         rv_status.setLayoutManager(statusLayout);
-        statusDataList = new ArrayList<>();
+        statusDataList = new ArrayList<>();*/
 
-        getData();
+        text_kodP = (TextView) findViewById(R.id.text_kodP);
+        tv_kodP = (TextView) findViewById(R.id.tv_kodP);
+        text_namaDana = (TextView) findViewById(R.id.text_namaDana);
+        tv_namaDana = (TextView) findViewById(R.id.tv_namaDana);
+        text_tajuk = (TextView) findViewById(R.id.text_tajuk);
+        tv_tajuk = (TextView) findViewById(R.id.tv_tajuk);
+        text_peranan = (TextView) findViewById(R.id.text_peranan);
+        tv_peranan = (TextView) findViewById(R.id.tv_peranan);
+        text_ketuaP = (TextView) findViewById(R.id.text_ketuaP);
+        tv_ketuaP = (TextView) findViewById(R.id.tv_ketuaP);
+        text_tmula = (TextView) findViewById(R.id.text_tmula);
+        tv_tmula = (TextView) findViewById(R.id.tv_tmula);
+        text_ttamat = (TextView) findViewById(R.id.text_ttamat);
+        tv_ttamat = (TextView) findViewById(R.id.tv_ttamat);
+        text_status = (TextView) findViewById(R.id.text_statusP);
+        tv_status = (TextView) findViewById(R.id.tv_statusP);
+
+        Intent i = getIntent();
+        String idprojek = i.getStringExtra(ID_PROJEK);
+        //Toast.makeText(this, idprojek, Toast.LENGTH_SHORT).show();
+        getData(idprojek);
 
        // StatusData statusData[]={new StatusData("Kod Projek :","AP-2013-011"),new StatusData("Nama Dana :","Projek Arus Perdana"),new StatusData("Tajuk :","Mobile Sensing Technology for Augmented Reality and Medical Application"),new StatusData("Peranan :","Ketua Projek"),new StatusData("Ketua Projek :","K009683 HASLINA BINTI ARSHAD"),new StatusData("Tarikh Mula :","01/11/2013"),new StatusData("Tarikh Tamat :","30/04/2017"),new StatusData("Status Projek :","Aktif")};
 
@@ -46,10 +73,10 @@ public class StatusActivity extends AppCompatActivity {
         rv_status.setAdapter(status_adapter);*/
     }
 
-    private void getData() {
+    private void getData(String idProjek) {
 
         final ProgressDialog loading = ProgressDialog.show(this, "Loading Data", "Please Wait...", false, true);
-        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/projek";
+        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/projek" + "/" + idProjek;
 
         Log.e("StatusActivity","getData");
 
@@ -59,8 +86,36 @@ public class StatusActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
-                    JSONArray resultsArray = response.getJSONArray("projek");
-                    parseData(resultsArray);
+                    JSONObject jsonObject = response.getJSONObject("projek");
+
+                    String kodProjek =jsonObject.getString("Id Projek");
+                    String namaDana =jsonObject.getString("Id Dana");
+                    String tajuk =jsonObject.getString("Nama Projek");
+                    String peranan =jsonObject.getString("Id Penyelidik");
+                    String ketuaProjek =jsonObject.getString("Ketua Projek");
+                    String tarikhmula =jsonObject.getString("Tarikh Mula");
+                    String tarikhtamat =jsonObject.getString("Tarikh Tamat");
+                    String statusProjek =jsonObject.getString("Status");
+
+
+                    text_kodP.setText("Kod Projek");
+                    tv_kodP.setText(kodProjek);
+                    text_namaDana.setText("Nama Dana");
+                    tv_namaDana.setText(namaDana);
+                    text_tajuk.setText("Tajuk");
+                    tv_tajuk.setText(tajuk);
+                    text_peranan.setText("Peranan");
+                    tv_peranan.setText(peranan);
+                    text_ketuaP.setText("Ketua Projek");
+                    tv_ketuaP.setText(ketuaProjek);
+                    text_tmula.setText("Tarikh Mula");
+                    tv_tmula.setText(tarikhmula);
+                    text_ttamat.setText("Tarikh Tamat");
+                    tv_ttamat.setText(tarikhtamat);
+                    text_status.setText("Status");
+                    tv_status.setText(statusProjek);
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -79,7 +134,7 @@ public class StatusActivity extends AppCompatActivity {
 
     }
 
-    private void parseData(JSONArray array) {
+    /*private void parseData(JSONArray array) {
         for (int i = 0; i < array.length(); i++) {
             StatusData status = new StatusData();
             JSONObject json = null;
@@ -125,7 +180,7 @@ public class StatusActivity extends AppCompatActivity {
         rv_status.setAdapter(status_adapter);
 
     }
-
+*/
 
     @Nullable
     @Override

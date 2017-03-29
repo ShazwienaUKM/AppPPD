@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myxlab.shida_minie.msmpu3">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,11 +14,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".DanaActivity2"
@@ -27,7 +23,7 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".PermohonanActivity"
@@ -36,7 +32,7 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".StatusActivity"
@@ -45,7 +41,7 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".LaporanProjActivity"
@@ -54,7 +50,17 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="mSMPU"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

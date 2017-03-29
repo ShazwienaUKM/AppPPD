@@ -5,14 +5,23 @@ package com.myxlab.shida_minie.msmpu3;
  */
 public class LaporanData {
 
-    String nama,status;
+    String nama,status,id_laporan;
 
     public LaporanData() {
     }
 
-    public LaporanData(String question, String answer) {
+    public LaporanData(String question, String answer,String id_laporan) {
         this.nama = question;
         this.status = answer;
+        this.id_laporan = id_laporan;
+    }
+
+    public String getId_laporan() {
+        return id_laporan;
+    }
+
+    public void setId_laporan(String id_laporan) {
+        this.id_laporan = id_laporan;
     }
 
     public String getNama() {

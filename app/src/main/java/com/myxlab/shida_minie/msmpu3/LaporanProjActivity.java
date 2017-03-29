@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,24 +24,53 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.myxlab.shida_minie.msmpu3.laporanAdapter.ID_LAPORAN;
+
 public class LaporanProjActivity extends AppCompatActivity {
 
-    RecyclerView rv_laporanProj;
-    RecyclerView.Adapter laporanProj_adapter;
-    RecyclerView.LayoutManager laporanProj_layout;
-    List<LaporanprojData>laporanprojDataList;
+    TextView text_kodP,tv_kodP,text_namaDana,tv_namaDana,text_tajuk,tv_tajuk,text_tmula,tv_tmula,text_ttamat,tv_ttamat,text_statusP,tv_statusP,text_tempohlaporan1,tv_tempohlaporan1,text_tpenghantaran1,tv_tpenghantaran1,text_statuslaporan1,tv_statuslaporan1,text_tempohlaporan2,tv_tempohlaporan2,text_tpenghantaran2,tv_tpenghantaran2,text_statuslaporan2,tv_statuslaporan2,text_tempohlaporan3,tv_tempohlaporan3,text_tpenghantaran3,tv_tpenghantaran3,text_statuslaporan3,tv_statuslaporan3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laporan_proj);
 
-        rv_laporanProj = (RecyclerView) findViewById(R.id.rv_laporanproj);
-        laporanProj_layout = new LinearLayoutManager(this);
-        rv_laporanProj.setLayoutManager(laporanProj_layout);
-        laporanprojDataList = new ArrayList<>();
+        text_kodP = (TextView) findViewById(R.id.text_kodP);
+        tv_kodP = (TextView) findViewById(R.id.tv_kodP);
+        text_namaDana = (TextView) findViewById(R.id.text_namaDana);
+        tv_namaDana = (TextView) findViewById(R.id.tv_namaDana);
+        text_tajuk = (TextView) findViewById(R.id.text_tajuk);
+        tv_tajuk = (TextView) findViewById(R.id.tv_tajuk);
+        text_tmula = (TextView) findViewById(R.id.text_tmula);
+        tv_tmula = (TextView) findViewById(R.id.tv_tmula);
+        text_ttamat = (TextView) findViewById(R.id.text_ttamat);
+        tv_ttamat = (TextView) findViewById(R.id.tv_ttamat);
+        text_statusP = (TextView) findViewById(R.id.text_statusP);
+        tv_statusP = (TextView) findViewById(R.id.tv_statusP);
+        text_tempohlaporan1 = (TextView) findViewById(R.id.text_tempohlaporan1);
+        tv_tempohlaporan1 = (TextView) findViewById(R.id.tv_tempohlaporan1);
+        text_tpenghantaran1 = (TextView) findViewById(R.id.text_tpenghantaran1);
+        tv_tpenghantaran1 = (TextView) findViewById(R.id.tv_tpenghantaran1);
+        text_statuslaporan1 = (TextView) findViewById(R.id.text_statuslaporan1);
+        tv_statuslaporan1 = (TextView) findViewById(R.id.tv_statuslaporan1);
+        text_tempohlaporan2 = (TextView) findViewById(R.id.text_tempohlaporan2);
+        tv_tempohlaporan2 = (TextView) findViewById(R.id.tv_tempohlaporan2);
+        text_tpenghantaran2 = (TextView) findViewById(R.id.text_tpenghantaran2);
+        tv_tpenghantaran2 = (TextView) findViewById(R.id.tv_tpenghantaran2);
+        text_statuslaporan2 = (TextView) findViewById(R.id.text_statuslaporan2);
+        tv_statuslaporan2 = (TextView) findViewById(R.id.tv_statuslaporan2);
+        text_tempohlaporan3 = (TextView) findViewById(R.id.text_tempohlaporan3);
+        tv_tempohlaporan3 = (TextView) findViewById(R.id.tv_tempohlaporan3);
+        text_tpenghantaran3 = (TextView) findViewById(R.id.text_tpenghantaran3);
+        tv_tpenghantaran3= (TextView) findViewById(R.id.tv_tpenghantaran3);
+        text_statuslaporan3 = (TextView) findViewById(R.id.text_statuslaporan3);
+        tv_statuslaporan3 = (TextView) findViewById(R.id.tv_statuslaporan3);
 
-        getData();
+        Intent i = getIntent();
+        String id_laporan = i.getStringExtra(ID_LAPORAN);
+        //Toast.makeText(this, id_laporan, Toast.LENGTH_SHORT).show();
+
+        getData(id_laporan);
 
         //LaporanprojData laporanprojData[]={new LaporanprojData("Kod Projek :","TD-2016-003"),new LaporanprojData("Nama Dana :","Dana Penyelidikan TopDown"),new LaporanprojData("Tajuk :","UKM MOBILE APP"),new LaporanprojData("Tarikh Mula","01/05/2016"),new LaporanprojData("Tarikh Tamat :","31/10/2017"),new LaporanprojData("Status Projek :","Aktif"),new LaporanprojData("Laporan Kemajuan 1 :\n(01/05/2016 - 30/06/2016)", "Telah Diterima (Selesai)"),new LaporanprojData("Tempoh Penghantaran 1 :","01/07/2016 - 31/07/2016"),new LaporanprojData("Laporan Kemajuan 2 :\n(01/07/2016 - 31/12/2016)", "Belum Dihantar"),new LaporanprojData("Tempoh Penghantaran 2 :","01/01/2017 - 31/01/2017"),new LaporanprojData("Laporan Kemajuan 3 :\n(01/01/2017 - 30/06/2017)", "Belum Dihantar"),new LaporanprojData("Tempoh Penghantaran 3 :","01/07/2017 - 31/07/2017"),new LaporanprojData("Laporan Kemajuan Akhir :\n(01/05/2016 - 31/10/2017)", "Belum Dihantar"),new LaporanprojData("Tempoh Penghantaran Akhir :","01/11/2017 - 29/01/2018")};
 
@@ -49,10 +80,10 @@ public class LaporanProjActivity extends AppCompatActivity {
 
     }
 
-    private void getData() {
+    private void getData(String id_laporan) {
 
         final ProgressDialog loading = ProgressDialog.show(this, "Loading Data", "Please Wait...", false, true);
-        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/laporan";
+        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/laporan" + "/" + id_laporan;
 
         Log.e("LaporanProjActivity","getData");
 
@@ -62,8 +93,62 @@ public class LaporanProjActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
-                    JSONArray resultsArray = response.getJSONArray("laporan");
-                    parseData(resultsArray);
+                    JSONObject jsonObject = response.getJSONObject("laporan");
+
+                    String kodP =jsonObject.getString("Id Projek");
+                    String namaDana =jsonObject.getString("Id Dana");
+                    //String tajuk =jsonObject.getString("Id Projek");
+                    //String tarikhmulaprojek =jsonObject.getString("tarikhmulaprojek");
+                    //String Tarikhtamatprojek =jsonObject.getString("Tarikhtamatprojek");
+                    //String statusProjek =json.getString("Tarikhtamatprojek");
+                    String tmulalaporan1 =jsonObject.getString("Tarikh Mula Laporan");
+                    String takhirlaporan1 =jsonObject.getString("Tarikh Akhir Laporan");
+                    String tmulahantar1 =jsonObject.getString("Tarikh Mula Penghantar Laporan");
+                    String takhirhantar1 =jsonObject.getString("Tarikh Akhir Penghantar Laporan");
+                    String statuslaporan1 =jsonObject.getString("Status");
+                    // String tmulalaporan2 =jsonObject.getString("Tarikh Mula Laporan");
+                    String takhirlaporan2 =jsonObject.getString("Tarikh Akhir Laporan");
+                    String tmulahantar2 =jsonObject.getString("Tarikh Mula Penghantar Laporan");
+                    String takhirhantar2 =jsonObject.getString("Tarikh Akhir Penghantar Laporan");
+                    String statuslaporan2 =jsonObject.getString("Status");
+                    String tmulalaporan3 =jsonObject.getString("Tarikh Mula Laporan");
+                    String takhirlaporan3 =jsonObject.getString("Tarikh Akhir Laporan");
+                    String tmulahantar3 =jsonObject.getString("Tarikh Mula Penghantar Laporan");
+                    String takhirhantar3 =jsonObject.getString("Tarikh Akhir Penghantar Laporan");
+                    String statuslaporan3 =jsonObject.getString("Status");
+
+
+                    text_kodP.setText("Kod Projek");
+                    tv_kodP.setText(kodP);
+                    text_namaDana.setText("Nama Dana");
+                    tv_namaDana.setText(namaDana);
+                    text_tajuk.setText("Tajuk");
+                    //tv_tajuk.setText(tajuk);
+                    text_tmula.setText("Tarikh Mula Projek");
+                    //tv_tmula.setText(tarikhmulaprojek);
+                    text_ttamat.setText("Tarikh Tamat Projek");
+                    //tv_ttamat.setText(Tarikhtamatprojek);
+                    text_statusP.setText("Status Projek");
+                    //tv_statusP.setText(statusProjek);
+                    text_tempohlaporan1.setText("Tempoh Laporan 1");
+                    tv_tempohlaporan1.setText(tmulalaporan1 + " - " + takhirlaporan1 );
+                    text_tpenghantaran1.setText("Tempoh Penghantaran laporan kemajuan 1");
+                    tv_tpenghantaran1.setText(tmulahantar1 + " - " + takhirhantar1 );
+                    text_statuslaporan1.setText("Status Laporan Kemajuan 1");
+                    tv_statuslaporan1.setText(statuslaporan1);
+                    text_tempohlaporan2.setText("Tempoh Laporan kemajuan 2");
+                    //tv_tempohlaporan2.setText(tmulalaporan2 + " - " + takhirlaporan2 );
+                    text_tpenghantaran2.setText("Tempoh Penghantaran laporan kemajuan 2");
+                    // tv_tpenghantaran2.setText(tmulahantar2 + "-" + takhirhantar2 );
+                    text_statuslaporan2.setText("Status Laporan Kemajuan 2");
+                    //tv_statuslaporan2.setText(statuslaporan2);
+                    text_tempohlaporan3.setText("Tempoh Laporan kemajuan 3");
+                    //tv_tempohlaporan3.setText(tmulalaporan3 + " - " + takhirlaporan3 );
+                    text_tpenghantaran3.setText("Tempoh Penghantaran laporan kemajuan 3");
+                    // tv_tpenghantaran3.setText(tmulahantar3 + "-" + takhirhantar3 );
+                    text_statuslaporan3.setText("Status Laporan Kemajuan 3");
+                    //tv_statuslaporan3.setText(statuslaporan3);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -82,7 +167,7 @@ public class LaporanProjActivity extends AppCompatActivity {
 
     }
 
-    private void parseData(JSONArray array) {
+   /* private void parseData(JSONArray array) {
         for (int i = 0; i < array.length(); i++) {
             LaporanprojData laporanProj = new LaporanprojData();
             JSONObject json = null;
@@ -100,7 +185,7 @@ public class LaporanProjActivity extends AppCompatActivity {
                 String tmulahantar1 =json.getString("Tarikh Mula Penghantar Laporan");
                 String takhirhantar1 =json.getString("Tarikh Akhir Penghantar Laporan");
                 String statuslaporan1 =json.getString("Status");
-                /* String tmulalaporan2 =json.getString("Tarikh Mula Laporan");
+                *//* String tmulalaporan2 =json.getString("Tarikh Mula Laporan");
                 String takhirlaporan2 =json.getString("Tarikh Akhir Laporan");
                 String tmulahantar2 =json.getString("Tarikh Mula Penghantar Laporan");
                 String takhirhantar2 =json.getString("Tarikh Akhir Penghantar Laporan");
@@ -109,7 +194,7 @@ public class LaporanProjActivity extends AppCompatActivity {
                 String takhirlaporan3 =json.getString("Tarikh Akhir Laporan");
                 String tmulahantar3 =json.getString("Tarikh Mula Penghantar Laporan");
                 String takhirhantar3 =json.getString("Tarikh Akhir Penghantar Laporan");
-                String statuslaporan3 =json.getString("Status");*/
+                String statuslaporan3 =json.getString("Status");*//*
 
 
                 laporanProj.setText_kodP("Kod Projek");
@@ -155,7 +240,7 @@ public class LaporanProjActivity extends AppCompatActivity {
         laporanProj_adapter = new LaporanProjAdapter(laporanprojDataList,this);
         rv_laporanProj.setAdapter(laporanProj_adapter);
 
-    }
+    }*/
 
     @Nullable
     @Override

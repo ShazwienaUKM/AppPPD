@@ -62,12 +62,13 @@
                     android:layout_gravity="center"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/icon_setting"
+                    android:id="@+id/icon_keluar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_setting"
+                    android:src="@drawable/ic_logout"
                     android:layout_gravity="right|top"
-                    android:layout_marginLeft="50dp"/>
+                    android:layout_marginLeft="50dp"
+                    android:clickable="true"/>
 
             </LinearLayout>
 

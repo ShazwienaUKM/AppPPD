@@ -49,6 +49,7 @@ public class iklanAdapter extends RecyclerView.Adapter<iklanAdapter.ViewHolder> 
 
         final IklanData iklanData = iklanDataList.get(position);
 
+        //holder.tv_idDana.setText(IklanData.getId_dana());
         holder.tv_dana.setText(iklanData.getNama());
         holder.tv_statusDana.setText(iklanData.getStatus());
 
@@ -72,11 +73,12 @@ public class iklanAdapter extends RecyclerView.Adapter<iklanAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_dana,tv_statusDana;
+        public TextView tv_dana,tv_statusDana,tv_idDana;
 
         public ViewHolder(View iklanView) {
             super(iklanView);
 
+            tv_idDana =(TextView) iklanView.findViewById(R.id.id_dana);
             tv_dana = (TextView) iklanView.findViewById(R.id.dana_title);
             tv_statusDana = (TextView) iklanView.findViewById(R.id.status_dana_title);
 
@@ -85,7 +87,7 @@ public class iklanAdapter extends RecyclerView.Adapter<iklanAdapter.ViewHolder> 
                 public void onClick(View view) {
                     int position = getAdapterPosition();
                     Intent i = new Intent(contextIklan,DanaActivity2.class);
-                    i.putExtra(KEY_NAME,iklanDataList.get(position).getNama());
+                    i.putExtra(KEY_NAME,iklanDataList.get(position).getId_dana());
                     view.getContext().startActivity(i);
                 }
             });

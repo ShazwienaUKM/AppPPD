@@ -2,6 +2,7 @@ package com.myxlab.shida_minie.msmpu3;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,6 +32,7 @@ import java.util.List;
  */
 public class IklanFragment extends android.support.v4.app.Fragment {
 
+
     View myView;
     RecyclerView rv_Iklan;
     RecyclerView.Adapter iklan_adapter;
@@ -47,6 +49,8 @@ public class IklanFragment extends android.support.v4.app.Fragment {
         rv_Iklan = (RecyclerView) myView.findViewById(R.id.rv_iklan);
         iklanDataList = new ArrayList<>();
         rv_Iklan.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
+        //call getData method to get data from api/url
         getData();
 
       /*  String s= "Sedang Iklan";
@@ -60,19 +64,10 @@ public class IklanFragment extends android.support.v4.app.Fragment {
                 new IklanData("Geran Universiti Penyelidikan",t)};*/
 
 
-
-        // getActivity().getApplicationContext() --> method untuk dapatkan context.
-
-/*        iklan_adapter = new iklanAdapter(getActivity(),senaraiDana);
-        rv_Iklan .setAdapter(iklan_adapter);*/
-
-      //  ((NavActivity) getActivity()).setActionBarTitle("Senarai Iklan");
-
         return myView;
     }
 
     private void getData(){
-        // url - http://pokesnipers.com/api/v1/pokemon.json
         final ProgressDialog loading = ProgressDialog.show(getContext(), "Loading Data", "Please Wait...", false, true);
         String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/dana";
 
@@ -111,12 +106,14 @@ public class IklanFragment extends android.support.v4.app.Fragment {
             try {
                 json = array.getJSONObject(i);
 
+                String id = json.getString("Id");
                 String dataName =json.getString("Nama Geran");
                 String dataStatus =json.getString("Status");
 
+                iklan.setId_dana(id);
                 iklan.setNama(dataName);
-                //iklan.setNama("1");
                 iklan.setStatus(dataStatus);
+
 
                 Log.e("iklanFragment Response(" + array.length() + ")", dataName +" - "+ dataStatus );
                 //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();

@@ -7,11 +7,228 @@
     tools:context="com.myxlab.shida_minie.msmpu3.StatusActivity">
 
 
-    <android.support.v7.widget.RecyclerView
+   <!-- <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rv_status">
 
-    </android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.RecyclerView>-->
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/text_kodP"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/tv_kodP"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/text_kodP"
+        android:textSize="15sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_kodP"
+        android:id="@+id/text_namaDana" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_namaDana"
+        android:id="@+id/tv_namaDana" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_namaDana"
+        android:id="@+id/text_tajuk" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_tajuk"
+        android:id="@+id/tv_tajuk" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_tajuk"
+        android:id="@+id/text_peranan" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_peranan"
+        android:id="@+id/tv_peranan" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_peranan"
+        android:id="@+id/text_ketuaP" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_ketuaP"
+        android:id="@+id/tv_ketuaP" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_ketuaP"
+        android:id="@+id/text_tmula" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_tmula"
+        android:id="@+id/tv_tmula" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_tmula"
+        android:id="@+id/text_ttamat" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_ttamat"
+        android:id="@+id/tv_ttamat" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/material_grey_600"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_ttamat"
+        android:id="@+id/text_statusP" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_statusP"
+        android:id="@+id/tv_statusP" />
+
+     </RelativeLayout>
+
+ </ScrollView>
 
 </RelativeLayout>

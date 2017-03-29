@@ -5,14 +5,23 @@ package com.myxlab.shida_minie.msmpu3;
  */
 public class ProjectData {
 
-    String nama,status;
+    String nama,status,id_projek;
 
     public ProjectData() {
     }
 
-    public ProjectData(String question, String answer) {
+    public ProjectData(String question, String answer,String id_projek) {
         this.nama = question;
         this.status = answer;
+        this.id_projek = id_projek;
+    }
+
+    public String getId_projek() {
+        return id_projek;
+    }
+
+    public void setId_projek(String id_projek) {
+        this.id_projek = id_projek;
     }
 
     public String getNama() {

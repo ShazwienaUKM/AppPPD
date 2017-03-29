@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,24 +24,33 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.myxlab.shida_minie.msmpu3.keputusanAdapter.ID_KEPUTUSAN;
+
 public class PermohonanActivity extends AppCompatActivity {
 
-    RecyclerView rv_permohonan;
-    RecyclerView.LayoutManager permohonanLayout;
-    RecyclerView.Adapter permohonan_adapter;
-    List<PermohonanData>permohonanDataList;
+
+    TextView text_idPermohonan,tv_idPermohonan,text_namaDana,tv_namaDana,text_tajuk,tv_tajuk,text_jangkaMasa,tv_jangkaMasa,text_status,tv_status;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permohonan);
 
-        rv_permohonan = (RecyclerView) findViewById(R.id.rv_permohonan);
-        permohonanLayout = new LinearLayoutManager(this);
-        rv_permohonan.setLayoutManager(permohonanLayout);
-        permohonanDataList = new ArrayList<>();
+        text_idPermohonan = (TextView) findViewById(R.id.text_idPermohonan);
+        tv_idPermohonan = (TextView) findViewById(R.id.tv_idPermohonan);
+        text_namaDana = (TextView) findViewById(R.id.text_namaDana);
+        tv_namaDana= (TextView) findViewById(R.id.tv_namaDana);
+        text_tajuk = (TextView) findViewById(R.id.text_tajuk);
+        tv_tajuk = (TextView) findViewById(R.id.tv_tajuk);
+        text_jangkaMasa = (TextView) findViewById(R.id.text_jangkaMasa);
+        tv_jangkaMasa = (TextView) findViewById(R.id.tv_jangkaMasa);
+        text_status = (TextView) findViewById(R.id.text_statusPermohonan);
+        tv_status = (TextView) findViewById(R.id.tv_statusPermohonan);
 
-        getData();
+        Intent i = getIntent();
+        String idKeputusan = i.getStringExtra(ID_KEPUTUSAN);
+        //Toast.makeText(this, idKeputusan, Toast.LENGTH_SHORT).show();
+        getData(idKeputusan);
 
         //PermohonanData permohonanData[] = {new PermohonanData("ID Borang :","P14256"),new PermohonanData("Nama Dana :","Geran Universiti Penyelidikan"),new PermohonanData("Tajuk :","A Multimodal Adaptive Interface Design for Wearables to Support Tourism Augmented Reality"),new PermohonanData("Jangka Masa (Bulan) :","24"),new PermohonanData("Status Mohon :","\tTindakan Urusetia(untuk kelulusan)")};
 
@@ -49,10 +60,10 @@ public class PermohonanActivity extends AppCompatActivity {
         rv_permohonan.setAdapter(permohonan_adapter);*/
     }
 
-    private void getData() {
+    private void getData(String idKeputusan) {
 
         final ProgressDialog loading = ProgressDialog.show(this, "Loading Data", "Please Wait...", false, true);
-        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/permohonan";
+        String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/permohonan" + "/" + idKeputusan;
 
         Log.e("PermohonanActivity","getData");
 
@@ -62,8 +73,25 @@ public class PermohonanActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
-                    JSONArray resultsArray = response.getJSONArray("permohonan");
-                    parseData(resultsArray);
+                    JSONObject jsonObject= response.getJSONObject("permohonan");
+
+                    String idBorang =jsonObject.getString("Id Borang");
+                    String namaDana =jsonObject.getString("Id Dana");
+                    String tajuk =jsonObject.getString("Tajuk");
+                    String jangkaMasa =jsonObject.getString("Jangka Masa");
+                    String statusPermohonan =jsonObject.getString("Status");
+
+                    text_idPermohonan.setText("Id Borang");
+                    tv_idPermohonan.setText(idBorang);
+                    text_namaDana.setText("Nama Dana");
+                    tv_namaDana.setText(namaDana);
+                    text_tajuk.setText("Tajuk");
+                    tv_tajuk.setText(tajuk);
+                    text_jangkaMasa.setText("Jangka Masa");
+                    tv_jangkaMasa.setText(jangkaMasa);
+                    text_status.setText("Status");
+                    tv_status.setText(statusPermohonan);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -82,7 +110,7 @@ public class PermohonanActivity extends AppCompatActivity {
 
     }
 
-    private void parseData(JSONArray array) {
+   /* private void parseData(JSONArray array) {
         for (int i = 0; i < array.length(); i++) {
             PermohonanData permohonan = new PermohonanData();
             JSONObject json = null;
@@ -117,7 +145,7 @@ public class PermohonanActivity extends AppCompatActivity {
         permohonan_adapter = new PermohonanAdapter(permohonanDataList,this);
         rv_permohonan.setAdapter(permohonan_adapter);
 
-    }
+    }*/
 
     @Nullable
     @Override

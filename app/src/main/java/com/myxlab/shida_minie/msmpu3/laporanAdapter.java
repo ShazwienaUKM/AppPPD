@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class laporanAdapter extends RecyclerView.Adapter<laporanAdapter.ViewHolder> {
 
+    public static final String ID_LAPORAN ="ID_LAPORAN" ;
     public Context contextLaporan;
     List<LaporanData> laporanDataList;
 
@@ -65,28 +66,23 @@ public class laporanAdapter extends RecyclerView.Adapter<laporanAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_laporan,tv_statusLaporan;
+        public TextView tv_laporan,tv_statusLaporan,tv_idlaporan;
 
         public ViewHolder(View laporanView) {
             super(laporanView);
 
             tv_laporan = (TextView) laporanView.findViewById(R.id.laporan_title);
             tv_statusLaporan = (TextView) laporanView.findViewById(R.id.status_laporan_title);
+            tv_idlaporan = (TextView) laporanView.findViewById(R.id.id_laporan);
 
             laporanView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
                     int position = getAdapterPosition();
-
-                    Snackbar.make(view,"item has been click" +position, Snackbar.LENGTH_LONG).setAction("Action",null).show();
-
-                    if (position == 0)
-                    {
-                        Intent i = new Intent(contextLaporan,LaporanProjActivity.class);
-
-                        view.getContext().startActivity(i);
-                    }
+                    Intent i = new Intent(contextLaporan,LaporanProjActivity.class);
+                    i.putExtra(ID_LAPORAN,laporanDataList.get(position).getId_laporan());
+                    view.getContext().startActivity(i);
                 }
             });
         }

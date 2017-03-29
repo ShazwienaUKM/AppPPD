@@ -10,8 +10,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
     android.app.FragmentManager fragmentManager = getFragmentManager();
 
-    CircleImageView icon_noti;
+    CircleImageView icon_noti,icon_logout;
+    String token;
+    RequestQueue requestQueue;
 
     private int[] tabIcons = {
             R.drawable.ic_dollar,
@@ -52,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         icon_noti = (CircleImageView) findViewById(R.id.icon_noti);
+        icon_logout = (CircleImageView) findViewById(R.id.icon_keluar);
+
+        Intent intent = getIntent();
+        token = intent.getStringExtra(LoginActivity.KEY_NAME);
+        //idPengguna = intent.getStringExtra(LoginActivity.ID_PENGGUNA);
+       // Toast.makeText(this, token, Toast.LENGTH_SHORT).show();
 
         icon_noti.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +86,64 @@ public class MainActivity extends AppCompatActivity {
 
                 //Toast.makeText(MainActivity.this, "hai..computer,,jgn memain..k bye", Toast.LENGTH_SHORT).show();
 
-
-
             }
         });
+
+            icon_logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/keluar?" + token;
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    });
+                    requestQueue.add(request);
+                }
+            });
+        /*icon_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "http://lrgs.ftsm.ukm.my/users/a146208/msmpuv2_5.2/public/api/v1/keluar?" + token;
+
+                StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            //Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+
+
+                           if(response.toString().equals(null))
+                              {
+                            Intent i = new Intent(MainActivity.this,LoginActivity.class);
+                            startActivity(i);
+                               }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Error",error.toString());
+                    }
+                });
+
+                requestQueue.add(request);
+            }
+
+        });*/
 
 
 

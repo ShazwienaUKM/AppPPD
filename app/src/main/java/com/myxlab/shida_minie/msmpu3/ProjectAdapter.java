@@ -19,6 +19,7 @@ import java.util.List;
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHolder> {
 
 
+    public static final String ID_PROJEK = "ID_PROJEK";
     public Context contextProject;
     List<ProjectData>projectDataList;
 
@@ -65,26 +66,22 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_project,tv_statusProject;
+        public TextView tv_project,tv_statusProject,tv_idprojek;
 
         public ViewHolder(View projectView) {
             super(projectView);
 
             tv_project = (TextView) projectView.findViewById(R.id.project_title);
             tv_statusProject = (TextView) projectView.findViewById(R.id.status_project_title);
+            tv_idprojek = (TextView) projectView.findViewById(R.id.id_projek);
 
             projectView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
-                    Snackbar.make(view,"item has been click" +position, Snackbar.LENGTH_LONG).setAction("Action",null).show();
-
-                    if (position == 0)
-                    {
-                        Intent i = new Intent(contextProject,StatusActivity.class);
-
-                        view.getContext().startActivity(i);
-                    }
+                    Intent i = new Intent(contextProject,StatusActivity.class);
+                    i.putExtra(ID_PROJEK,projectDataList.get(position).getId_projek());
+                    view.getContext().startActivity(i);
                 }
             });
 

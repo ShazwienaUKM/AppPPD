@@ -19,6 +19,7 @@ import java.util.List;
  */
 public class keputusanAdapter extends RecyclerView.Adapter<keputusanAdapter.ViewHolder> {
 
+    public static final String ID_KEPUTUSAN = "ID_KEPUTUSAN";
     public Context contextKeputusan;
     List<keputusanData> keputusanDataList;
 
@@ -70,13 +71,14 @@ public class keputusanAdapter extends RecyclerView.Adapter<keputusanAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_keputusan, tv_statusKeputusan;
+        public TextView tv_keputusan, tv_statusKeputusan,tv_idkeputusan;
 
         public ViewHolder(View keputusanView) {
             super(keputusanView);
 
             tv_keputusan = (TextView) keputusanView.findViewById(R.id.keputusan_title);
             tv_statusKeputusan = (TextView) keputusanView.findViewById(R.id.status_keputusan_title);
+            tv_idkeputusan = (TextView) keputusanView.findViewById(R.id.id_keputusan);
 
 
 
@@ -85,15 +87,9 @@ public class keputusanAdapter extends RecyclerView.Adapter<keputusanAdapter.View
                 public void onClick(View view) {
 
                     int position = getAdapterPosition();
-
-                    Snackbar.make(view,"item has been click" +position, Snackbar.LENGTH_LONG).setAction("Action",null).show();
-
-                    if (position == 0)
-                    {
-                        Intent i = new Intent(contextKeputusan,PermohonanActivity.class);
-
-                        view.getContext().startActivity(i);
-                    }
+                    Intent i = new Intent(contextKeputusan,PermohonanActivity.class);
+                    i.putExtra(ID_KEPUTUSAN,keputusanDataList.get(position).getId_keputusan());
+                    view.getContext().startActivity(i);
                 }
             });
         }

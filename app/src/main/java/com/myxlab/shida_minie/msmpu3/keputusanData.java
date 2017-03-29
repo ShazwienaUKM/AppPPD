@@ -5,14 +5,23 @@ package com.myxlab.shida_minie.msmpu3;
  */
 public class keputusanData {
 
-    String nama,status;
+    String nama,status,id_keputusan;
 
     public keputusanData() {
     }
 
-    public keputusanData(String question, String answer) {
+    public keputusanData(String question, String answer,String id_keputusan) {
         this.nama = question;
         this.status = answer;
+        this.id_keputusan = id_keputusan;
+    }
+
+    public String getId_keputusan() {
+        return id_keputusan;
+    }
+
+    public void setId_keputusan(String id_keputusan) {
+        this.id_keputusan = id_keputusan;
     }
 
     public String getNama() {

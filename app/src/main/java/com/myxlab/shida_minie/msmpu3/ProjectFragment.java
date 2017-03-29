@@ -101,9 +101,11 @@ public class ProjectFragment extends Fragment {
             try {
                 json = array.getJSONObject(i);
 
+                String idprojek = json.getString("Id");
                 String dataName =json.getString("Nama Projek");
                 String dataStatus =json.getString("Status");
 
+                project.setId_projek(idprojek);
                 project.setNama(dataName);
                 project.setStatus(dataStatus);
 

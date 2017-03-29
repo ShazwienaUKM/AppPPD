@@ -5,14 +5,23 @@ package com.myxlab.shida_minie.msmpu3;
  */
 public class IklanData {
 
-    String nama,status;
+    String nama,status,id_dana;
 
     public IklanData() {
     }
 
-    public IklanData(String question, String answer) {
+    public IklanData(String question, String answer,String id_dana) {
         this.nama = question;
         this.status = answer;
+        this.id_dana = id_dana;
+    }
+
+    public String getId_dana() {
+        return id_dana;
+    }
+
+    public void setId_dana(String id_dana) {
+        this.id_dana = id_dana;
     }
 
     public String getNama() {
